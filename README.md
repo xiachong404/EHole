@@ -76,7 +76,7 @@ EHole(棱洞)2.0提供了**两种**指纹识别方式，可从本地读取识别
 **1.本地识别：**
 
 ```bash
-EHole -l url.txt   //URL地址需带上协议,每行一个
+EHole finger -l url.txt   //URL地址需带上协议,每行一个
 ```
 
 **2.FOFA识别:**
@@ -90,7 +90,7 @@ EHole finger -f 192.168.1.1/24  //支持单IP或IP段
 **3.结果输出：**
 
 ```bash
-EHole -l url.txt -json export.json  //结果输出至export.json文件
+EHole finger -l url.txt -o export.json  //结果输出至export.json文件
 ```
 
 ### [# 00x03] 指纹编写：
