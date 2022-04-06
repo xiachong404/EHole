@@ -41,22 +41,34 @@ EHole是一款对资产中重点系统指纹识别的工具，在红队作战中
 
 ```bash
 EHole version: 2.0
-Usage: Ehole [-f|-l] [parameter]
+Usage: Ehole [command] [-f|-l] [parameter]
 
-Options:
-  -f string
-        Fofa searches for assets , supports IP and IP segments。(192.168.1.1 | 192.168.1.0/24)
-  -ftime string
-        fofa timeout (default "10")
-  -h    this help
-  -json string
-        out json
-  -l string
-        Probe based on local file
-  -log string
-        Log file name (default "server.log")
-  -t string
-        thread (default "100")
+Available Commands:
+  finger      ehole的指纹识别模块
+  fofaext     ehole的fofa提取模块
+  help        Help about any command
+
+ehole的指纹识别模块
+Usage:
+  ehole finger [flags]
+Flags:
+  -f, --fip string      从fofa提取资产，进行指纹识别，仅仅支持ip或者ip段，例如：192.168.1.1 | 192.168.1.0/24
+  -s, --fofa string     从fofa提取资产，进行指纹识别，支持fofa所有语法
+  -h, --help            help for finger
+  -l, --local string    从本地文件读取资产，进行指纹识别，支持无协议，列如：192.168.1.1:9090 | http://192.168.1.1:9090
+  -o, --output string   输出所有结果，当前仅支持json和xlsx后缀的文件。
+  -p, --proxy string    指定访问目标时的代理，支持http代理和socks5，例如：http://127.0.0.1:8080、socks5://127.0.0.1:8080
+  -t, --thread int      指纹识别线程大小。 (default 100)
+  -u, --url string      识别单个目标。
+
+从fofa api提取资产并保存成xlsx，支持大批量ip提取,支持fofa所有语法
+Usage:
+  ehole fofaext [flags]
+Flags:
+  -s, --fofa string     从fofa提取资产，支持fofa所有语法，默认保存所有结果。
+  -h, --help            help for fofaext
+  -l, --ipfile string   从文本获取IP，在fofa搜索，支持大量ip，默认保存所有结果。
+  -o, --output string   指定输出文件名和位置，当前仅支持xlsx后缀的文件。 (default "results.xlsx")
 ```
 
 EHole(棱洞)2.0提供了**两种**指纹识别方式，可从本地读取识别，也可以从FOFA进行批量调用API识别(需要FOFA密钥)，同时支持结果JSON格式输出。
