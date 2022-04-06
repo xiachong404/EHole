@@ -72,7 +72,7 @@ EHole -l url.txt   //URL地址需带上协议,每行一个
 注意：从FOFA识别需要配置FOFA 密钥以及邮箱，在config.ini内配置好密钥以及邮箱即可使用。
 
 ```bash
-EHole -f 192.168.1.1/24  //支持单IP或IP段
+EHole finger -f 192.168.1.1/24  //支持单IP或IP段
 ```
 
 **3.结果输出：**
